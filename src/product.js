@@ -1,28 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import './product.css';
 
-const Product = () => {
-    return <article>
-        <Name />
-        <Image />
-        <Description />
-        <Price />
-    </article>;
+
+const url = "http://localhost:8080/products";
+
+const Products = (props) => {
+
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*",
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    const products = await response.json();
+    setProducts(products);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+
+    console.log(props);
+
+    return (
+      <div className="products">
+        {products.map((product, index) => (
+          <div key={index}>
+            <h3>{product.name}</h3>
+            <img src={product.image} alt=""/>
+            <p>{product.description}</p>
+            <h5>${product.price}</h5>
+          </div>
+        ))}
+      </div>
+    );
 }
-const Name = () =>
-    <h3>Patricia Nash Purse</h3>;
 
-const Image = () =>
-    <img src="https://i1.ebayimg.com/images/g/Hn8AAOSwdCdfghtg/s-l140.jpg" alt="" />;
-
-const Description = () =>
-    <p>A unique design for a unique you</p>;
-
-const Quantity = () =>
-    <h4>4</h4>;
-
-const Price = () =>
-    <h4>$50</h4>;
-
-
-export default Product;
+export default Products;

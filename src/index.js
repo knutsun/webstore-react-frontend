@@ -1,19 +1,22 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
+import Head from "./head.js";
 import Nav from './nav.js';
-import Product from './product.js';
+import Products from './product.js';
 
 
 
 function App(){
-  return (
-  <section>
-    <Nav />
-    <Product />
-      <Product />
-      <Product />
 
-    </section>);
+  return (
+    <html>
+      <Head />
+      <body>
+        <Nav />
+        <Products />
+      </body>
+    </html>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
