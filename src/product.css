@@ -1,0 +1,22 @@
+.product {
+    text-align: center;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: #fff;
+    min-width: 150px;
+    max-width: 300px;
+    height: 250px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.product:hover {
+  background-color: rgb(245, 249, 255);
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    margin: 15px;
+    padding: 5px;
+}

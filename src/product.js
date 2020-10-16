@@ -28,9 +28,10 @@ const Products = (props) => {
     console.log(props);
 
     return (
-      <div className="products">
+      <div>
+        <h2>Products</h2>
         {products.map((product, index) => (
-          <div key={index}>
+          <div className="product" key={index}>
             <h3>{product.name}</h3>
             <img src={product.image} alt=""/>
             <p>{product.description}</p>
